@@ -2,6 +2,7 @@
 import readlineSync from 'readline-sync';
 import chalk from 'chalk';
 import ora from 'ora';
+import { exit } from 'process';
 let todos = [];
 function displayMenu() {
     console.log('\nTodo List Application');
@@ -67,16 +68,50 @@ function main() {
         }
         switch (choice) {
             case 1:
+                const spinner = ora(chalk.blue('Creating list.....\n')).start();
+
+                setTimeout(() => {
+                        spinner.color = 'red';
+                        spinner.text = 'exit';
+                        
+                        process.exit();
+                    }, 1000);
+                    
                 addTodo();
                 break;
             case 2:
+                const spiner = ora(chalk.greenBright('Marking Complete.....\n')).start();
+
+                setTimeout(() => {
+                        spiner.color = chalk.green('red');
+                        spiner.text = 'exit';
+                        process.exit();
+                    }, 1000);
+                    
                 markTodoAsCompleted();
                 break;
             case 3:
+                const spinnr = ora(chalk.yellow('Making List....\n')).start();
+
+                setTimeout(() => {
+                        spinnr.color = 'red';
+                        spinnr.text = 'exit';
+                        process.exit();
+                    }, 1000);
+                    
                 listTodos();
                 break;
             case 4:
-                console.log(chalk.red('Exiting...'));
+                
+                const spnner = ora(chalk.red('Exiting.....')).start();
+
+                setTimeout(() => {
+                        spnner.color = 'red';
+                        spnner.text = 'exit';
+                        process.exit();
+                    }, 1000);
+                    
+                
                 break;
             default:
                 console.log(chalk.red('Invalid choice. Please try again.'));

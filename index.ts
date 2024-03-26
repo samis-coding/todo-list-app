@@ -86,6 +86,10 @@ function main() {
                 listTodos();
                 break;
             case 4:
+                const cliSpinners = require('cli-spinners');
+
+                console.log(cliSpinners.dots);
+                
                 console.log(chalk.red('Exiting...'));
                 break;
             default:
